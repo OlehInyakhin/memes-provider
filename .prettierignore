@@ -1,0 +1,18 @@
+# Ignore artifacts:
+.next
+build
+dist
+node_modules
+public
+coverage
+
+# Ignore all HTML files:
+*.html
+
+# Ignore specific config files
+*.config.js
+!prettier.config.js
+
+# Other files to ignore
+.DS_Store
+.now
