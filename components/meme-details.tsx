@@ -6,6 +6,7 @@ import { Button } from '@heroui/button';
 import { Card, CardHeader, CardBody, CardFooter } from '@heroui/card';
 import { Image } from '@heroui/image';
 import { Chip } from '@heroui/chip';
+
 import { useMemeStore, Meme } from '@/config/store';
 import { EditMemeModal } from '@/components/edit-meme-modal';
 
@@ -22,6 +23,7 @@ export default function MemeDetails(props: MemeDetailsProps) {
 
   useEffect(() => {
     const foundMeme = memes.find((m) => m.id === id);
+
     if (foundMeme) {
       setMeme(foundMeme);
     } else {
@@ -78,8 +80,8 @@ export default function MemeDetails(props: MemeDetailsProps) {
               <Image
                 alt={meme.name}
                 className="w-full h-auto object-cover rounded-lg"
-                width={400}
                 src={meme.imageUrl}
+                width={400}
               />
               <div className="flex items-center justify-between mt-4">
                 <div className="flex flex-wrap gap-1">
@@ -108,7 +110,7 @@ export default function MemeDetails(props: MemeDetailsProps) {
         </CardFooter>
       </Card>
 
-      <EditMemeModal isOpen={isModalOpen} onClose={closeModal} meme={meme} />
+      <EditMemeModal isOpen={isModalOpen} meme={meme} onClose={closeModal} />
     </div>
   );
 }

@@ -5,9 +5,10 @@ import { Card, CardHeader, CardBody, CardFooter } from '@heroui/card';
 import { Image } from '@heroui/image';
 import { Button } from '@heroui/button';
 import { Chip } from '@heroui/chip';
+import { Link } from '@heroui/link';
+
 import { useMemeStore, Meme } from '@/config/store';
 import { EditMemeModal } from '@/components/edit-meme-modal';
-import { Link } from '@heroui/link';
 
 type MemeListProps = {
   meme?: Meme;
@@ -83,9 +84,9 @@ export const MemeList = (props: MemeListProps) => {
                   Edit
                 </Button>
                 <Button
+                  color="danger"
                   size="sm"
                   variant="bordered"
-                  color="danger"
                   onPress={() => handleDelete(meme.id)}
                 >
                   Delete
@@ -96,7 +97,7 @@ export const MemeList = (props: MemeListProps) => {
         ))}
       </div>
 
-      <EditMemeModal isOpen={isModalOpen} onClose={closeModal} meme={selectedMeme} />
+      <EditMemeModal isOpen={isModalOpen} meme={selectedMeme} onClose={closeModal} />
     </>
   );
 };

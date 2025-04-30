@@ -5,9 +5,10 @@ import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from 
 import { Button } from '@heroui/button';
 import { Chip } from '@heroui/chip';
 import { Tooltip } from '@heroui/tooltip';
+import { Link } from '@heroui/link';
+
 import { useMemeStore, Meme } from '@/config/store';
 import { EditMemeModal } from '@/components/edit-meme-modal';
-import { Link } from '@heroui/link';
 
 export const MemeTable = () => {
   const { memes, deleteMeme } = useMemeStore();
@@ -84,9 +85,9 @@ export const MemeTable = () => {
                   <Tooltip content="Delete meme">
                     <Button
                       isIconOnly
+                      color="danger"
                       size="sm"
                       variant="light"
-                      color="danger"
                       onPress={() => handleDelete(meme.id)}
                     >
                       🗑️
@@ -99,7 +100,7 @@ export const MemeTable = () => {
         </TableBody>
       </Table>
 
-      <EditMemeModal isOpen={isModalOpen} onClose={closeModal} meme={selectedMeme} />
+      <EditMemeModal isOpen={isModalOpen} meme={selectedMeme} onClose={closeModal} />
     </>
   );
 };
